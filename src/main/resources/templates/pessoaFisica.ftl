@@ -10,6 +10,14 @@
                     <input type="hidden" ng-model="pessoaFisicaCtrl.pessoaFisica.id" />
                     <div class="row">
                         <div class="form-group col-md-12">
+                            <label class="col-md-2 control-lable" for="unomeNomeFantasia">Nome</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="pessoaFisicaCtrl.pessoaFisica.nomeNomeFantasia" id="unomeNomeFantasia" class="pessoaFisicaname form-control input-sm" placeholder="Digite um nome" required ng-minlength="3"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
                             <label class="col-md-2 control-lable" for="age">CPF</label>
                             <div class="col-md-7">
                                 <input type="text" ng-model="pessoaFisicaCtrl.pessoaFisica.cpfcnpj" id="cpfcnpj" class="form-control input-sm" placeholder="Digite o CPF da Pessoa Física" required/>
@@ -18,9 +26,9 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label class="col-md-2 control-lable" for="unomeNomeFantasia">Nome</label>
+                            <label class="col-md-2 control-lable" for="age">Data de Nascimento</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="pessoaFisicaCtrl.pessoaFisica.nomeNomeFantasia" id="unomeNomeFantasia" class="pessoaFisicaname form-control input-sm" placeholder="Digite um nome" required ng-minlength="3"/>
+                                <input type="date" ng-model="pessoaFisicaCtrl.pessoaFisica.dataDeNascimento" id="dataDeNascimento" class="form-control input-sm" placeholder="dd/MM/yyyy" required />
                             </div>
                         </div>
                     </div>
@@ -45,6 +53,8 @@
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Data de Nascimento</th>
                         <th width="100"></th>
                         <th width="100"></th>
                     </tr>
@@ -53,6 +63,8 @@
                     <tr ng-repeat="u in pessoaFisicaCtrl.getAllPessoaFisica()">
                         <td>{{u.id}}</td>
                         <td>{{u.nomeNomeFantasia}}</td>
+                        <td>{{u.cpfcnpj}}</td>
+                        <td>{{u.dataDeNascimento}}</td>
                         <td><button type="button" ng-click="pessoaFisicaCtrl.editPessoaFisica(u.id)" class="btn btn-success custom-width">Editar</button></td>
                         <td><button type="button" ng-click="pessoaFisicaCtrl.removePessoaFisica(u.id)" class="btn btn-danger custom-width">Remover</button></td>
                     </tr>
