@@ -3,8 +3,8 @@
 angular.module('crudApp').controller('PessoaFisicaController',
     ['PessoaFisicaService', '$scope',  function( PessoaFisicaService, $scope) {
         var self = this;
-        self.course = {};
-        self.courses=[];
+        self.pessoaFisica = {};
+        self.pessoaFisicas=[];
 
         self.submit = submit;
         self.getAllPessoaFisica = getAllPessoaFisica;
@@ -23,25 +23,25 @@ angular.module('crudApp').controller('PessoaFisicaController',
 
         function submit() {
             console.log('Submetendo');
-            if (self.course.id === undefined || self.course.id === null) {
-                console.log('Salvando Um Nova Pessoa Física', self.course);
-                createPessoaFisica(self.course);
+            if (self.pessoaFisica.id === undefined || self.pessoaFisica.id === null) {
+                console.log('Salvando Um Nova Pessoa Física', self.pessoaFisica);
+                createPessoaFisica(self.pessoaFisica);
             } else {
-                updatePessoaFisica(self.course, self.course.id);
-                console.log('Atualizando a Pessoa Física com o id ', self.course.id);
+                updatePessoaFisica(self.pessoaFisica, self.pessoaFisica.id);
+                console.log('Atualizando a Pessoa Física com o id ', self.pessoaFisica.id);
             }
         }
 
-        function createPessoaFisica(course) {
+        function createPessoaFisica(pessoaFisica) {
             console.log('Criação de Pessoas Físicas');
-            PessoaFisicaService.createPessoaFisica(course)
+            PessoaFisicaService.createPessoaFisica(pessoaFisica)
                 .then(
                     function (response) {
                         console.log('Pessoa Física criada com sucesso');
                         self.successMessage = 'Pessoa Física criada com sucesso';
                         self.errorMessage='';
                         self.done = true;
-                        self.course={};
+                        self.pessoaFisica={};
                         $scope.myForm.$setPristine();
                     },
                     function (errResponse) {
@@ -53,9 +53,9 @@ angular.module('crudApp').controller('PessoaFisicaController',
         }
 
 
-        function updatePessoaFisica(course, id){
+        function updatePessoaFisica(pessoaFisica, id){
             console.log('Atualização de Pessoas Físicas');
-            PessoaFisicaService.updatePessoaFisica(course, id)
+            PessoaFisicaService.updatePessoaFisica(pessoaFisica, id)
                 .then(
                     function (response){
                         console.log('Pessoa Física atualizada com sucesso');
@@ -95,8 +95,8 @@ angular.module('crudApp').controller('PessoaFisicaController',
             self.successMessage='';
             self.errorMessage='';
             PessoaFisicaService.getPessoaFisica(id).then(
-                function (course) {
-                    self.course = course;
+                function (pessoaFisica) {
+                    self.pessoaFisica = pessoaFisica;
                 },
                 function (errResponse) {
                     console.error('Erro ao remover a Pessoa Física ' + id + ', Error :' + errResponse.data);
@@ -106,7 +106,7 @@ angular.module('crudApp').controller('PessoaFisicaController',
         function reset(){
             self.successMessage='';
             self.errorMessage='';
-            self.course={};
+            self.pessoaFisica={};
             $scope.myForm.$setPristine(); //reset Form
         }
     }
