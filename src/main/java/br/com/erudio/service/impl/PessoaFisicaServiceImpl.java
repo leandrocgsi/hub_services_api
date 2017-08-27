@@ -7,28 +7,28 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.erudio.model.PessoaFisica;
-import br.com.erudio.repositories.PessoafisicaRepository;
+import br.com.erudio.repositories.PessoaFisicaRepository;
 import br.com.erudio.service.PessoaFisicaService;
 
 
 
-@Service("pessoafisicaService")
+@Service("pessoaFisicaService")
 @Transactional
 public class PessoaFisicaServiceImpl implements PessoaFisicaService{
 
     @Autowired
-    private PessoafisicaRepository pessoafisicaRepository;
+    private PessoaFisicaRepository pessoaFisicaRepository;
 
     public PessoaFisica findById(Long id) {
-        return pessoafisicaRepository.findOne(id);
+        return pessoaFisicaRepository.findOne(id);
     }
 
     public PessoaFisica findByName(String name) {
-        return pessoafisicaRepository.findByNomeNomeFantasia(name);
+        return pessoaFisicaRepository.findByNomeNomeFantasia(name);
     }
 
     public void savePessoaFisica(PessoaFisica pessoaFisica) {
-        pessoafisicaRepository.save(pessoaFisica);
+        pessoaFisicaRepository.save(pessoaFisica);
     }
 
     public void updatePessoaFisica(PessoaFisica pessoaFisica){
@@ -36,15 +36,15 @@ public class PessoaFisicaServiceImpl implements PessoaFisicaService{
     }
 
     public void deletePessoaFisicaById(Long id){
-        pessoafisicaRepository.delete(id);
+        pessoaFisicaRepository.delete(id);
     }
 
     public void deleteAllPessoaFisicas(){
-        pessoafisicaRepository.deleteAll();
+        pessoaFisicaRepository.deleteAll();
     }
 
     public List<PessoaFisica> findAllPessoaFisicas(){
-        return pessoafisicaRepository.findAll();
+        return pessoaFisicaRepository.findAll();
     }
 
     public boolean isPessoaFisicaExist(PessoaFisica pessoaFisica) {

@@ -22,7 +22,7 @@
 	                    <div class="form-group col-md-12">
 	                        <label class="col-md-2 control-lable" for="uname">Razão Social</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="pessoaJuridicaCtrl.pessoaJuridica.nomeRazaoSocial" id="registration" class="pessoaJuridicaname form-control input-sm" placeholder="Digite a Razão Social" required ng-minlength="3"/>
+	                            <input type="text" ng-model="pessoaJuridicaCtrl.pessoaJuridica.nomeRazaoSocial" id="registration" class="form-control input-sm" placeholder="Digite a Razão Social" required/>
 	                        </div>
 	                    </div>
 	                </div>

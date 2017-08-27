@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import br.com.erudio.model.PessoaFisica;
 
 @Repository
-public interface PessoafisicaRepository extends JpaRepository<PessoaFisica, Long> {
+public interface PessoaFisicaRepository extends JpaRepository<PessoaFisica, Long> {
 
     PessoaFisica findByNomeNomeFantasia(String name);
 
