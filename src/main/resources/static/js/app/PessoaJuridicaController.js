@@ -1,16 +1,13 @@
 'use strict';
 
 angular.module('crudApp').controller('PessoaJuridicaController',
-    ['PessoaJuridicaService', 'CourseService', '$scope',  function( PessoaJuridicaService, CourseService, $scope) {
+    ['PessoaJuridicaService', /*'CourseService',*/ '$scope',  function( PessoaJuridicaService, /*CourseService,*/ $scope) {
 
         var self = this;
         self.pessoaJuridica = {};
-        self.pessoaJuridica=[];
-        self.courses= CourseService.getAllCourses();
 
         self.submit = submit;
         self.getAllPessoaJuridica = getAllPessoaJuridica;
-        self.getAllCourses = CourseService.getAllCourses();
         self.createPessoaJuridica = createPessoaJuridica;
         self.updatePessoaJuridica = updatePessoaJuridica;
         self.removePessoaJuridica = removePessoaJuridica;
@@ -115,10 +112,6 @@ angular.module('crudApp').controller('PessoaJuridicaController',
             self.errorMessage='';
             self.pessoaJuridica={};
             $scope.myForm.$setPristine(); //reset Form
-        }
-        
-        function getAllCourses(){
-            return CourseService.getAllCourses();
         }
     }
 ]);

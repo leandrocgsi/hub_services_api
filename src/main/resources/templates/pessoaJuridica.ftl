@@ -11,48 +11,34 @@
 
 	                <div class="row">
 	                    <div class="form-group col-md-12">
-	                        <label class="col-md-2 control-lable" for="age">CPF</label>
+	                        <label class="col-md-2 control-lable" for="age">CNPJ</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="pessoaJuridicaCtrl.pessoaJuridica.id.id" id="cpf" class="form-control input-sm" placeholder="Digite o CNPJ da Pessoa Jurídica" required ng-pattern="pessoaJuridicaCtrl.onlyIntegers"/>
+	                            <input type="text" ng-model="pessoaJuridicaCtrl.pessoaJuridica.cpfcnpj" id="cnpj" class="form-control input-sm" placeholder="Digite o CNPJ da Pessoa Jurídica" required/>
 	                        </div>
 	                    </div>
 	                </div>
 	                
 	                <div class="row">
 	                    <div class="form-group col-md-12">
-	                        <label class="col-md-2 control-lable" for="uname">N° de Matrícula</label>
+	                        <label class="col-md-2 control-lable" for="uname">Razão Social</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="pessoaJuridicaCtrl.pessoaJuridica.id.registration" id="registration" class="pessoaJuridicaname form-control input-sm" placeholder="Digite o N° de Matrícula" required ng-minlength="3"/>
+	                            <input type="text" ng-model="pessoaJuridicaCtrl.pessoaJuridica.nomeRazaoSocial" id="registration" class="pessoaJuridicaname form-control input-sm" placeholder="Digite a Razão Social" required ng-minlength="3"/>
 	                        </div>
 	                    </div>
 	                </div>
 	                
 	                <div class="row">
 	                    <div class="form-group col-md-12">
-	                        <label class="col-md-2 control-lable" for="uname">Nome</label>
+	                        <label class="col-md-2 control-lable" for="uname">Nome Fantasia</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="pessoaJuridicaCtrl.pessoaJuridica.name" id="uname" class="pessoaJuridicaname form-control input-sm" placeholder="Digite o Nome" required ng-minlength="3"/>
+	                            <input type="text" ng-model="pessoaJuridicaCtrl.pessoaJuridica.nomeNomeFantasia" id="uname" class="pessoaJuridicaname form-control input-sm" placeholder="Digite o Nome Fantasia" required ng-minlength="3"/>
 	                        </div>
-	                    </div>
-	                </div>
-	
-	                <div class="row">
-	                    <div class="form-group col-md-12">
-	                        
-	                      <label class="col-md-2 for="pessoaFisica">Pessoa Física</label>
-	                      <select class="col-md-7"  style="pessoaJuridicaname form-control input-sm ng-pristine ng-valid-minlength ng-not-empty ng-valid ng-valid-required ng-touched"   ng-model="pessoaJuridicaCtrl.pessoaJuridica.nomeNomeFantasia">
-	                          <option ng-selected="{{u.id == filterCondition.u.id}}" 
-	                              ng-repeat="u in pessoaJuridicaCtrl.courses"
-	                              value="{{u.id}}">
-	                              {{u.name}}
-	                          </option>
-	                      </select>
 	                    </div>
 	                </div>
 
 	                <div class="row">
 	                    <div class="form-actions floatRight">
-	                        <input type="submit"  value="{{!courseCtrl.pessoaJuridica ? 'Salvar' : 'Salvar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid || myForm.$pristine">
+	                        <input type="submit"  value="{{!pessoaJuridicaCtrl.pessoaJuridica ? 'Salvar' : 'Atualizar'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid || myForm.$pristine">
 	                        
 	                        <button type="button" ng-click="pessoaJuridicaCtrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar</button>
 	                    </div>
@@ -69,20 +55,18 @@
 		        <table class="table table-hover">
 		            <thead>
 		            <tr>
-		                <th>CPF</th>
-		                <th>N° de Matrícula</th>
-		                <th>Nome</th>
-		                <th>XYZ</th>
+		                <th>CNPJ</th>
+		                <th>Nome Fantasia</th>
+		                <th>Razão Social</th>
 		                <th width="100"></th>
 		                <th width="100"></th>
 		            </tr>
 		            </thead>
 		            <tbody>
 		            <tr ng-repeat="u in pessoaJuridicaCtrl.getAllPessoaJuridica()">
-		                <td>{{u.id.id}}</td>
-		                <td>{{u.id.registration}}</td>
-		                <td>{{u.name}}</td>
-		                <td>{{u.course.name}}</td>
+		                <td>{{u.id}}</td>
+		                <td>{{u.nomeNomeFantasia}}</td>
+		                <td>{{u.nomeRazaoSocial}}</td>
 		                <td><button type="button" ng-click="pessoaJuridicaCtrl.editPessoaJuridica(u.id)" class="btn btn-success custom-width">Editar</button></td>
 		                <td><button type="button" ng-click="pessoaJuridicaCtrl.removePessoaJuridica(u.id)" class="btn btn-danger custom-width">Remover</button></td>
 		            </tr>
