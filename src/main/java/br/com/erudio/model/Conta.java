@@ -44,8 +44,12 @@ public class Conta implements Serializable {
     private TipoConta tipoConta;
     
     @ManyToOne(cascade={CascadeType.ALL})
-    @JoinColumn(name="id_conta_matriz", foreignKey = @ForeignKey(name = "ContaContaMatriz"))
+    @JoinColumn(name="id_conta_matriz", referencedColumnName="id", foreignKey = @ForeignKey(name = "ContaContaMatriz"))
     private Conta contaMatriz;
+    
+    @ManyToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name="id_pessoa", referencedColumnName="id", foreignKey = @ForeignKey(name = "ContaPessoa"))
+    private Pessoa pessoa;
     
     @OneToMany(mappedBy="contaMatriz")
     private List<Conta> contasFilial = new ArrayList<Conta>();
@@ -108,6 +112,14 @@ public class Conta implements Serializable {
         this.saldo = saldo;
     }
 
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -117,6 +129,7 @@ public class Conta implements Serializable {
         result = prime * result + ((dataCriacao == null) ? 0 : dataCriacao.hashCode());
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+        result = prime * result + ((pessoa == null) ? 0 : pessoa.hashCode());
         result = prime * result + ((saldo == null) ? 0 : saldo.hashCode());
         result = prime * result + ((tipoConta == null) ? 0 : tipoConta.hashCode());
         return result;
@@ -143,6 +156,9 @@ public class Conta implements Serializable {
         if (nome == null) {
             if (other.nome != null) return false;
         } else if (!nome.equals(other.nome)) return false;
+        if (pessoa == null) {
+            if (other.pessoa != null) return false;
+        } else if (!pessoa.equals(other.pessoa)) return false;
         if (saldo == null) {
             if (other.saldo != null) return false;
         } else if (!saldo.equals(other.saldo)) return false;
@@ -155,6 +171,7 @@ public class Conta implements Serializable {
     @Override
     public String toString() {
         return "Conta [id=" + id + ", dataCriacao=" + dataCriacao + ", nome=" + nome + ", saldo=" + saldo
-               + ", tipoConta=" + tipoConta + ", contaMatriz=" + contaMatriz + ", contasFilial=" + contasFilial + "]";
+               + ", tipoConta=" + tipoConta + ", contaMatriz=" + contaMatriz + ", pessoa=" + pessoa + ", contasFilial="
+               + contasFilial + "]";
     }
 }
