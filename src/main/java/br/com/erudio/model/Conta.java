@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "conta")
 public class Conta implements Serializable {
@@ -47,14 +49,15 @@ public class Conta implements Serializable {
     @JoinColumn(name = "idStatusConta", referencedColumnName="id", foreignKey = @ForeignKey(name = "ContaStatusConta"))
     private StatusConta statusConta;
     
-    @ManyToOne(cascade={CascadeType.ALL})
+    @ManyToOne
     @JoinColumn(name="id_conta_matriz", referencedColumnName="id", foreignKey = @ForeignKey(name = "ContaContaMatriz"))
     private Conta contaMatriz;
     
-    @ManyToOne(cascade={CascadeType.ALL})
+    @ManyToOne
     @JoinColumn(name="id_pessoa", referencedColumnName="id", foreignKey = @ForeignKey(name = "ContaPessoa"))
     private Pessoa pessoa;
     
+    @JsonIgnore
     @OneToMany(mappedBy="contaMatriz")
     private List<Conta> contasFilial = new ArrayList<Conta>();
 
