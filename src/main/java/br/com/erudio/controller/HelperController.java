@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.erudio.model.Pessoa;
 import br.com.erudio.model.StatusConta;
 import br.com.erudio.model.TipoConta;
+import br.com.erudio.model.TipoTransacao;
 import br.com.erudio.service.PessoaService;
 import br.com.erudio.service.StatusContaService;
 import br.com.erudio.service.TipoContaService;
+import br.com.erudio.service.TipoTransacaoService;
 
 @RestController
 @RequestMapping("/api")
@@ -26,6 +28,9 @@ public class HelperController {
 
     @Autowired
     TipoContaService tipoContaService;
+    
+    @Autowired
+    TipoTransacaoService tipoTransacaoService;
     
     @Autowired
     StatusContaService StatusContaService;
@@ -38,6 +43,13 @@ public class HelperController {
         List<TipoConta> tiposConta = tipoContaService.findAllTipoConta();
         if (tiposConta.isEmpty()) return new ResponseEntity(HttpStatus.NO_CONTENT);
         return new ResponseEntity<List<TipoConta>>(tiposConta, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/helper/tiposTransacao", method = RequestMethod.GET)
+    public ResponseEntity<List<TipoTransacao>> listAllTiposTransacao() {
+        List<TipoTransacao> tiposTransacao = tipoTransacaoService.findAllTipoTransacao();
+        if (tiposTransacao.isEmpty()) return new ResponseEntity(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<List<TipoTransacao>>(tiposTransacao, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/helper/statusConta", method = RequestMethod.GET)
