@@ -1,4 +1,4 @@
-# hub_services_api
+# Hub Services API
 
 O backup do banco de dados pode ser baixado [aqui](https://raw.githubusercontent.com/leandrocgsi/hub_services_api/master/BackupBancoDeDados.sql).
 
