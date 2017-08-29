@@ -1,5 +1,6 @@
 package br.com.erudio.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -53,6 +54,7 @@ public class ContaController {
             logger.error("Não foi possível cadastrar esta conta. Já existe uma Conta com o nome: " + conta.getNome());
             return new ResponseEntity(new CustomErrorType("Não foi possível cadastrar esta conta. Já existe uma Conta com o nome: " + conta.getNome()),HttpStatus.CONFLICT);
         }
+        conta.setDataCriacao(new Date());
         contaService.saveConta(conta);
 
         return new ResponseEntity<Conta>(conta, HttpStatus.OK);
