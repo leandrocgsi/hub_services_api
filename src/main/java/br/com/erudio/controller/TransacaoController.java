@@ -61,9 +61,10 @@ public class TransacaoController {
     }
 
     @RequestMapping(value = "/transacao/estornoTransacao/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<?> estornoTransacao(@PathVariable("id") long id, @RequestBody Transacao transacao) {
+    public ResponseEntity<?> estornoTransacao(@PathVariable("id") long id) {
         logger.info("Atualizando a Transacao de ID: " + id);
 
+        Transacao transacao = transacaoService.findById(id);
         transacao.setEstornada(true);
         Transacao currentTransacao = transacaoService.findById(id);
 

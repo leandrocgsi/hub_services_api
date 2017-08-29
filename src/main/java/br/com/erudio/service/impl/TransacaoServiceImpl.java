@@ -1,5 +1,6 @@
 package br.com.erudio.service.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,24 +30,24 @@ public class TransacaoServiceImpl implements TransacaoService{
     public void saveTransacao(Transacao transacao) {
         
         Conta origem = contaRepository.findOne(transacao.getOrigem().getId());
-        origem.setSaldo(origem.getSaldo().subtract(transacao.getValor()));
-        contaRepository.save(origem);
+        BigDecimal saldoOrigem = origem.getSaldo().subtract(transacao.getValor());
+        contaRepository.updateSaldo(saldoOrigem, origem.getId());
         
         Conta destino = contaRepository.findOne(transacao.getDestino().getId());
-        origem.setSaldo(origem.getSaldo().add(transacao.getValor()));
-        contaRepository.save(destino);
+        BigDecimal saldoDestino = origem.getSaldo().add(transacao.getValor());
+        contaRepository.updateSaldo(saldoDestino, destino.getId());
         
         transacaoRepository.save(transacao);
     }
 
     public void estornoTransacao(Transacao transacao){
         Conta origem = contaRepository.findOne(transacao.getOrigem().getId());
-        origem.setSaldo(origem.getSaldo().add(transacao.getValor()));
-        contaRepository.save(origem);
+        BigDecimal saldoOrigem = origem.getSaldo().add(transacao.getValor());
+        contaRepository.updateSaldo(saldoOrigem, origem.getId());
         
         Conta destino = contaRepository.findOne(transacao.getDestino().getId());
-        origem.setSaldo(origem.getSaldo().subtract(transacao.getValor()));
-        contaRepository.save(destino);
+        BigDecimal saldoDestino = origem.getSaldo().subtract(transacao.getValor());
+        contaRepository.updateSaldo(saldoDestino, destino.getId());
         saveTransacao(transacao);
     }
 
