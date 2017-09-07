@@ -18,7 +18,6 @@ import br.com.erudio.model.Conta;
 import br.com.erudio.service.ContaService;
 import br.com.erudio.util.CustomErrorType;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 @RestController
 @RequestMapping("/api")
 public class ContaController {
