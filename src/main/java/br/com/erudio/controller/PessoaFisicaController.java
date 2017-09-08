@@ -17,7 +17,6 @@ import br.com.erudio.model.PessoaFisica;
 import br.com.erudio.service.PessoaFisicaService;
 import br.com.erudio.util.CustomErrorType;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 @RestController
 @RequestMapping("/api")
 public class PessoaFisicaController {
