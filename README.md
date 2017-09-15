@@ -1,5 +1,7 @@
 # Hub Services API
 
+[![Build Status](https://travis-ci.org/leandrocgsi/simple-rest-example-swagger.svg?branch=master)](https://travis-ci.org/leandrocgsi/simple-rest-example-swagger)
+
 O backup do banco de dados pode ser baixado [aqui](https://raw.githubusercontent.com/leandrocgsi/hub_services_api/master/BackupBancoDeDados.sql).
 
 O código que consome essa API (aplicação cliente) pode ser baixada [aqui](https://github.com/leandrocgsi/hub_services_client).
