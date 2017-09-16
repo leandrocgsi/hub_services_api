@@ -1,7 +1,7 @@
 # Hub Services API
 
-[![Build Status](https://travis-ci.org/leandrocgsi/simple-rest-example-swagger.svg?branch=master)](https://travis-ci.org/leandrocgsi/simple-rest-example-swagger)
-[![Build Status](https://circleci.com/gh/leandrocgsi/hub_services_api.svg?&style=shield)](https://circleci.com/gh/leandrocgsi/hub_services_api/)
+[![Build Status](https://travis-ci.org/leandrocgsi/hub_services_api.svg?branch=master)]
+[![Build Status](https://circleci.com/gh/leandrocgsi/hub_services_api.svg?&style=shield)]
 
 O backup do banco de dados pode ser baixado [aqui](https://raw.githubusercontent.com/leandrocgsi/hub_services_api/master/BackupBancoDeDados.sql).
 
