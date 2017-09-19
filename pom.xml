@@ -26,11 +26,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- Add freemarker template support -->        
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
         <!-- Add JPA support -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
