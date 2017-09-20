@@ -20,6 +20,13 @@
         <h2.version>1.4.187</h2.version>
     </properties>
 
+	<repositories>
+		<repository>
+			<id>jcenter-release</id>
+			<name>jcenter</name>
+			<url>http://oss.jfrog.org/artifactory/oss-release-local/</url>
+		</repository>
+	</repositories>
     <dependencies>
         <!-- Add typical dependencies for a web application -->
         <dependency>
@@ -47,6 +54,17 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        
+   		<dependency>
+			<groupId>com.mangofactory</groupId>
+			<artifactId>swagger-springmvc</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ajar</groupId>
+			<artifactId>swagger-spring-mvc-ui</artifactId>
+			<version>0.4</version>
+		</dependency>
         
         <dependency>
             <groupId>postgresql</groupId>
