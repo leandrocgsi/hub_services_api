@@ -86,13 +86,4 @@ public class ContaController {
         contaService.deleteContaById(id);
         return new ResponseEntity<Conta>(HttpStatus.NO_CONTENT);
     }
-
-    @RequestMapping(value = "/conta/", method = RequestMethod.DELETE)
-    public ResponseEntity<Conta> deleteAllContas() {
-        logger.info("Deletando todas as Contas");
-
-        contaService.deleteAllContas();
-        return new ResponseEntity<Conta>(HttpStatus.NO_CONTENT);
-    }
-
 }
