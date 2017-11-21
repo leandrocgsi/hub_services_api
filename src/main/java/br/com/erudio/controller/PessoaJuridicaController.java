@@ -58,6 +58,11 @@ public class PessoaJuridicaController {
         return new ResponseEntity<PessoaJuridica>(pessoaJuridica, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/pessoaJuridica", method = RequestMethod.PUT)
+    public ResponseEntity<?> updatePessoaJuridica(@RequestBody PessoaJuridica pessoaJuridica) {
+        return updatePessoaJuridica(pessoaJuridica.getId(), pessoaJuridica);
+    }
+
     @RequestMapping(value = "/pessoaJuridica/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> updatePessoaJuridica(@PathVariable("id") long id, @RequestBody PessoaJuridica pessoaJuridica) {
         logger.info("Atualizando a Pessoa Juridica de ID: " + id);
